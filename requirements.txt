@@ -2,6 +2,7 @@
 streamlit
 streamlit-option-menu
 langchain
+langchain-groq
 langchain-community
 langchain_experimental
 PyPDF2
@@ -10,3 +11,4 @@ beautifulsoup4
 youtube-transcript-api
 InstructorEmbedding
 sentence-transformers
+python-dotenv
