@@ -11,6 +11,4 @@ model:
 
 
 embeddings : 
-  model_name : "model/bge-large-en-v1.5"
-  model_kwargs : {"device": "cpu"}
-  encode_kwargs : {"normalize_embeddings": True}
+  model_name : "nomic-embed-text"
