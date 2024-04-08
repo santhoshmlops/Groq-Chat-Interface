@@ -8,6 +8,7 @@ from src.chatbot import get_chatbot_response
 from src.pdf import get_pdf_text
 from src.website import get_website_text
 from src.youtube import get_youtube_text
+from src.dataframe import get_dataframe_text
 
 # Set page configuration
 st.set_page_config(page_title="Groq Chat Interface", page_icon="🤖")
@@ -99,8 +100,8 @@ if selected in ['ChatBot','Audio','Image','PDF','Website','YouTube','DataFrame',
                     response = user_input(user_query)
                 
                 elif selected == 'DataFrame':
-                    pass
-                
+                    response = get_dataframe_text(file_upload,user_query)
+              
                 elif selected == 'DataBase':
                     pass
                 
