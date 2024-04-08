@@ -6,6 +6,7 @@ from langchain_core.messages import AIMessage, HumanMessage
 from chain import *
 from src.chatbot import get_chatbot_response
 from src.pdf import get_pdf_text
+from src.website import get_website_text
 
 # Set page configuration
 st.set_page_config(page_title="Groq Chat Interface", page_icon="🤖")
@@ -85,7 +86,10 @@ if selected in ['ChatBot','Audio','Image','PDF','Website','YouTube','DataFrame',
                     response = user_input(user_query)
                 
                 elif selected == 'Website':
-                    pass
+                    raw_text = get_website_text(url)
+                    text_chunks = get_url_text_chunks(raw_text)
+                    get_url_vector_store(text_chunks)          
+                    response = user_input(user_query)
                 
                 elif selected == 'YouTube':
                     pass

@@ -73,3 +73,19 @@ def user_input(user_question):
         return_only_outputs=True
     )   
     return response["output_text"]
+
+# Function to split url text into chunks
+def get_url_text_chunks(text):
+    text_splitter = CharacterTextSplitter(
+        chunk_size=config['textsplitter']['chunk_size'], 
+        chunk_overlap=config['textsplitter']['chunk_overlap'],
+        )
+    chunks = text_splitter.split_documents(text)
+    return chunks
+
+
+# Function to create vector store from text chunks for URL
+def get_url_vector_store(text_chunks):
+    embeddings = OllamaEmbeddings(model=config['embeddings']['model_name'])
+    vector_store = FAISS.from_documents(text_chunks, embedding=embeddings)
+    vector_store.save_local("faiss_index")
