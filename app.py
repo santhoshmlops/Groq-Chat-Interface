@@ -34,6 +34,15 @@ if selected in ['ChatBot','Audio','Image','PDF','Website','YouTube','DataFrame',
     st.title(f":orange[Interactive Assistant] - :grey[{title_dict[selected]}]")
     st.write(" Meet your Intelligent Bot - Chat effortlessly with instant solution to all queries")
 
+    # Creating file uploader for specific interfaces
+    if selected in ['Audio','Image','PDF','DataFrame','DataBase']:
+        file_upload = st.file_uploader("Upload your Files ", accept_multiple_files=True)
+    
+    # Creating text input for URL
+    elif selected in ['Website','YouTube']:
+        url = st.text_input(" Enter URL Here")
+
+
     # Initialize chat history if not present
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = [AIMessage(content="“Hello 👋   How may I assist you today?”")]
@@ -57,12 +66,36 @@ if selected in ['ChatBot','Audio','Image','PDF','Website','YouTube','DataFrame',
         with st.chat_message("AI"):
             with st.spinner("Generating answer..."):
                 st_time = time.time()
+
+                # Process different chat interface options
                 if selected == 'ChatBot':
                     response = get_chatbot_response(user_query, st.session_state.chat_history)
-
+                
+                elif selected == 'Audio':
+                    pass
+                
+                elif selected == 'Image':
+                    pass
+                
+                elif selected == 'PDF':
+                    pass
+                
+                elif selected == 'Website':
+                    pass
+                
+                elif selected == 'YouTube':
+                    pass
+                
+                elif selected == 'DataFrame':
+                    pass
+                
+                elif selected == 'DataBase':
+                    pass
+                
                 else:
                     response = "This option is not yet implemented."
                     
+                # Display response and calculate response time
                 if response is not None:
                     st.write(response)
                     st.session_state.chat_history.append(AIMessage(content=response))
