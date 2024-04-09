@@ -13,3 +13,4 @@ InstructorEmbedding
 sentence-transformers
 python-dotenv
 tabulate
+mysql-connector-python
