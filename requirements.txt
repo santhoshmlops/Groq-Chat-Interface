@@ -14,3 +14,5 @@ sentence-transformers
 python-dotenv
 tabulate
 mysql-connector-python
+google-generativeai
+langchain-google-genai

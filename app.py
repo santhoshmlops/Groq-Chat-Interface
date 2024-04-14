@@ -5,6 +5,7 @@ from streamlit_option_menu import option_menu
 from langchain_core.messages import AIMessage, HumanMessage
 from chain import *
 from src.chatbot import get_chatbot_response
+from src.image import get_image_text
 from src.pdf import get_pdf_text
 from src.website import get_website_text
 from src.youtube import get_youtube_text
@@ -41,7 +42,7 @@ if selected in ['ChatBot','Audio','Image','PDF','Website','YouTube','DataFrame',
 
     # Creating file uploader for specific interfaces
     if selected in ['Audio','Image','PDF','DataFrame']:
-        file_upload = st.file_uploader("Upload your Files ", accept_multiple_files=True)
+        file_upload = st.file_uploader("Upload your Files ", accept_multiple_files=False)
     
     # Creating text input for URL
     elif selected in ['Website','YouTube']:
@@ -104,8 +105,8 @@ if selected in ['ChatBot','Audio','Image','PDF','Website','YouTube','DataFrame',
                     pass
                 
                 elif selected == 'Image':
-                    pass
-                
+                    response = get_image_text(file_upload,user_query)
+                                  
                 elif selected == 'PDF':
                     raw_text = get_pdf_text(file_upload)
                     text_chunks = get_text_chunks(raw_text)

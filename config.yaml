@@ -12,3 +12,7 @@ model:
 
 embeddings : 
   model_name : "nomic-embed-text"
+
+# Configuration for image processing
+image_model:
+  model: "gemini-pro-vision" 
