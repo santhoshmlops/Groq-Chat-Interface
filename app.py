@@ -19,9 +19,9 @@ st.set_page_config(page_title="Groq Chat Interface", page_icon="🤖")
 with st.sidebar:
     # Dropdown menu for selecting chat interface options
     selected = option_menu('Groq Chat Interface',
-                           ['ChatBot','Audio','Image','PDF','Website','YouTube','DataFrame','DataBase' ],
+                           ['ChatBot','Image','PDF','Website','YouTube','DataFrame','DataBase' ],
                            menu_icon='none', 
-                           icons=['robot','music-note-list','images','filetype-pdf', 'browser-chrome','youtube','table','database'],
+                           icons=['robot','images','filetype-pdf', 'browser-chrome','youtube','table','database'],
                            default_index=0
                            )
     
@@ -34,14 +34,14 @@ with st.sidebar:
     st.button('New Chat', on_click=clear_cache)
 
 # Display selected chat interface title
-if selected in ['ChatBot','Audio','Image','PDF','Website','YouTube','DataFrame','DataBase']:
-    title_dict = {'ChatBot': 'ChatBot','Audio': 'Audio','Image': 'Image','PDF': 'PDF', 
+if selected in ['ChatBot','Image','PDF','Website','YouTube','DataFrame','DataBase']:
+    title_dict = {'ChatBot': 'ChatBot','Image': 'Image','PDF': 'PDF', 
     'Website': 'Website', 'YouTube': 'YouTube','DataFrame': 'DataFrame','DataBase': 'DataBase'}
     st.title(f":orange[Interactive Assistant] - :grey[{title_dict[selected]}]")
     st.write(" Meet your Intelligent Bot - Chat effortlessly with instant solution to all queries")
 
     # Creating file uploader for specific interfaces
-    if selected in ['Audio','Image','PDF','DataFrame']:
+    if selected in ['Image','PDF','DataFrame']:
         file_upload = st.file_uploader("Upload your Files ", accept_multiple_files=False)
     
     # Creating text input for URL
@@ -100,9 +100,6 @@ if selected in ['ChatBot','Audio','Image','PDF','Website','YouTube','DataFrame',
                 # Process different chat interface options
                 if selected == 'ChatBot':
                     response = get_chatbot_response(user_query, st.session_state.chat_history)
-                
-                elif selected == 'Audio':
-                    pass
                 
                 elif selected == 'Image':
                     response = get_image_text(file_upload,user_query)
