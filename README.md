@@ -15,6 +15,52 @@ One of the most significant functionalities of the system is its Database intera
 In summary, the "Groq Chat Interface" project offers a robust and user-friendly platform for interactive communication and data analysis. With its diverse set of interfaces, chat history maintenance, real-time response generation, and Database interaction capabilities, the system caters to a wide range of user needs, making it a valuable tool for various applications across different domains.
 
 
+# How to Download and Run Project?
+
+### You will need to copy and paste the following code into your terminal :
+
+### STEP 01 - Clone this repository:
+
+```bash
+https://github.com/santhoshmlops/Groq-Chat-Interface.git
+```
+
+### STEP 02 - Create a conda environment or python environment:
+
+```bash
+conda create -p venv python=3.11 -y
+```
+
+```bash
+conda activate venv/
+```
+or
+
+```bash
+python -m venv venv
+```
+
+```bash
+venv\Scripts\activate
+```
+
+### STEP 03 - Install the Requirements : 
+```bash
+pip install -r requirements.txt
+```
+### STEP 04 - Download and install Ollama for Embeddings: 
+
+Download and install Ollama.exe [Download link](https://ollama.com/download)
+
+```bash
+ollama run nomic-embed-text
+```
+### STEP 05 - Run the Streamlit Application : 
+```bash
+streamlit run app.py
+```
+
+
 
 ![Screenshot (39)](https://github.com/santhoshmlops/Groq-Chat-Interface/assets/133121635/ad00ec00-a0ee-4d46-98a4-2a380645ba6a)
 ![Screenshot (40)](https://github.com/santhoshmlops/Groq-Chat-Interface/assets/133121635/5c05761a-2e74-4b82-80c6-2c4a57e1ac1a)
