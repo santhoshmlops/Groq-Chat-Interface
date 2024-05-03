@@ -1,4 +1,4 @@
-# Groq-Chat-Interface
+# Groq Chat Interface
 
 The "Groq Chat Interface" project is a comprehensive interactive assistant designed to facilitate seamless communication between users and the system through various interfaces such as ChatBot, Image processing, PDF parsing, website content analysis, YouTube video content, DataFrame analysis, and Database interactions.
 
